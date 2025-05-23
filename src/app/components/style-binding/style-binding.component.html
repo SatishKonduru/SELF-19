@@ -1,0 +1,39 @@
+<div style="display: flex; justify-content: center">
+  <p style="font-size: 25px">Style Binding</p>
+</div>
+
+<div style="color: blue">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sapiente
+  magni voluptates eum. Sint aliquam, corrupti voluptatum enim doloremque fugit
+  ratione explicabo vero eius ab debitis esse quaerat nostrum deserunt.
+</div>
+
+<div [style.color]="textColor">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sapiente
+  magni voluptates eum. Sint aliquam, corrupti voluptatum enim doloremque fugit
+  ratione explicabo vero eius ab debitis esse quaerat nostrum deserunt.
+</div>
+
+<div [style.fontSize]="textSize">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sapiente
+  magni voluptates eum. Sint aliquam, corrupti voluptatum enim doloremque fugit
+  ratione explicabo vero eius ab debitis esse quaerat nostrum deserunt.
+</div>
+
+<div [style.color]="textColor">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sapiente
+  magni voluptates eum. Sint aliquam, corrupti voluptatum enim doloremque fugit
+  ratione explicabo vero eius ab debitis esse quaerat nostrum deserunt.
+</div>
+
+<div [ngStyle]="myValue >= 10 ? { fontSize: textSize } : { color: textColor }">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sapiente
+  magni voluptates eum. Sint aliquam, corrupti voluptatum enim doloremque fugit
+  ratione explicabo vero eius ab debitis esse quaerat nostrum deserunt.
+</div>
+
+<div [ngStyle]="true ? { color: 'green' } : { color: 'red' }">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sapiente
+  magni voluptates eum. Sint aliquam, corrupti voluptatum enim doloremque fugit
+  ratione explicabo vero eius ab debitis esse quaerat nostrum deserunt.
+</div>

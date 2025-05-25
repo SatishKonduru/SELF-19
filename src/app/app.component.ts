@@ -1,3 +1,4 @@
+import { EventBindingComponent } from './components/event-binding/event-binding.component';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TestComponent } from './components/test/test.component';
@@ -8,7 +9,7 @@ import { ClassBindingComponent } from './components/class-binding/class-binding.
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ClassBindingComponent],
+  imports: [RouterOutlet, EventBindingComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

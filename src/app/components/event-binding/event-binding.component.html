@@ -1,0 +1,190 @@
+<div style="display: flex; justify-content: center">
+  <p style="font-size: 25px">Event Binding</p>
+</div>
+<div style="display: flex; justify-content: center">
+  <button mat-raised-button style="color: blue" (click)="getName()">
+    Display Name
+  </button>
+  <button mat-raised-button style="color: red" (click)="clear()">
+    Clear Name
+  </button>
+</div>
+<p style="font-size: 30px; color: tomato; margin: 20px auto; width: 300px">
+  Name: {{ name }}
+</p>
+<!--  Double Click Event -->
+<div style="display: flex; justify-content: center">
+  <button mat-raised-button (dblclick)="onDoubleClick()">
+    Double Click Me
+  </button>
+</div>
+<p style="font-size: 20px; color: purple; margin: 20px auto; width: 500px">
+  Action: {{ result }}
+</p>
+<!-- Input Event -->
+<div style="display: flex; justify-content: center">
+  <input type="text" matInput (input)="onInput($event.target.value)" />
+</div>
+<p style="font-size: 20px; color: purple; margin: 20px auto; width: 500px">
+  Input Value: {{ inputValue }}
+</p>
+<!-- Change Event (for select) -->
+<div style="display: flex; justify-content: center">
+  <mat-form-field appearance="outline">
+    <mat-label>Select</mat-label>
+    <mat-select (selectionChange)="onChange($event)">
+      <mat-option value="apple">Apple</mat-option>
+      <mat-option value="banana">Banana</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<p style="font-size: 20px; color: purple; margin: 20px auto; width: 500px">
+  Selected Value: {{ selectedValue }}
+</p>
+
+<!-- Change Event (for checkbox) -->
+<div style="display: flex; justify-content: center">
+  <mat-checkbox (change)="onCheckboxChange($event)">
+    Accept Terms & Conditions
+  </mat-checkbox>
+</div>
+<p style="font-size: 20px; color: purple; margin: 20px auto; width: 500px">
+  Checkbox Checked: {{ isChecked }}
+</p>
+<!-- Change Event (for radio) -->
+<div style="display: flex; justify-content: center">
+  <mat-radio-group (change)="onGenderChange($event)">
+    <mat-radio-button value="male">Male</mat-radio-button>
+    <mat-radio-button value="female">Female</mat-radio-button>
+  </mat-radio-group>
+</div>
+<p style="font-size: 20px; color: purple; margin: 20px auto; width: 500px">
+  Selected Gender: {{ selectedGender }}
+</p>
+<!-- Keyup Event  -->
+<div style="display: flex; justify-content: center">
+  <input matInput (keyup)="onKeyup($event)" />
+</div>
+<p style="font-size: 20px; color: purple; margin: 20px auto; width: 500px">
+  Key Up Value: {{ keyUpValue }}
+</p>
+<!-- Keydown Event  -->
+<div style="display: flex; justify-content: center">
+  <input matInput (keydown)="onKeydown($event)" />
+</div>
+<p style="font-size: 20px; color: purple; margin: 20px auto; width: 500px">
+  Key Down Value: {{ keyDownValue }}
+</p>
+<!-- Enter Key Only -->
+<div style="display: flex; justify-content: center">
+  <input matInput (keyup.enter)="onEnterKey()" />
+</div>
+<p style="font-size: 20px; color: purple; margin: 20px auto; width: 500px">
+  Key Enter Value: {{ keyEnterValue }}
+</p>
+<!-- Focus & blur Event -->
+<div style="display: flex; justify-content: center">
+  <input matInput (focus)="onFocus()" (blur)="onBlur()" />
+</div>
+<p style="font-size: 20px; color: purple; margin: 20px auto; width: 500px">
+  Focus Value: {{ focusValue }}
+</p>
+<!-- Mouseover/ Mouseenter/ Mouseleave -->
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    background-color: bisque;
+  "
+  (mouseover)="onMouseOver()"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+>
+  Hover me
+</div>
+<!-- Right Click / Context Menu -->
+<div
+  style="display: flex; justify-content: center"
+  (contextmenu)="onRightClick($event)"
+>
+  <p
+    style="
+      width: 25%;
+      height: 50px;
+      background-color: rgb(110, 68, 15);
+      cursor: pointer;
+      color: white;
+    "
+  >
+    Right Click me
+  </p>
+</div>
+<p style="font-size: 20px; color: purple; margin: 20px auto; width: 500px">
+  Context Value: {{ contextValue }}
+</p>
+<!-- Drag and Drop -->
+<!-- Draggable Box -->
+<div
+  id="dragItem"
+  draggable="true"
+  (dragstart)="onDragStart($event)"
+  style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 120px;
+    background-color: rgb(104, 15, 110);
+    color: white;
+    cursor: grab;
+    margin-bottom: 20px;
+  "
+>
+  Drag me
+</div>
+
+<!-- Drop Area -->
+<div
+  id="dropZone"
+  (dragover)="onDragOver($event)"
+  (drop)="onDrop($event)"
+  style="
+    height: 150px;
+    width: 320px;
+    border: 2px dashed purple;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #f9f2fc;
+    color: #6a0dad;
+    font-weight: bold;
+    font-size: 16px;
+  "
+>
+  Drop here
+</div>
+
+<!-- Drag Status -->
+<p style="font-size: 20px; color: purple; margin-top: 30px">
+  Drag Status: {{ dragStatus }}
+</p>
+
+<!-- Scroll Event -->
+<div
+  (scroll)="onScroll($event)"
+  style="
+    overflow: auto;
+    height: 100px;
+    background-color: bisque;
+    margin: 20px auto;
+    width: 500px;
+  "
+>
+  <div style="height: 500px">Scroll Me</div>
+</div>
+<p style="font-size: 20px; color: purple; margin: 20px auto; width: 500px">
+  Scroll Status: {{ scrollStatus }}
+</p>

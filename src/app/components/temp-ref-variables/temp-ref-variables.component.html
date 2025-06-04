@@ -1,0 +1,24 @@
+<div style="display: flex; justify-content: center">
+  <p style="font-size: 25px">Template Ref. Variables</p>
+</div>
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  "
+>
+  <mat-form-field appearance="outline">
+    <mat-label>Enter Something</mat-label>
+    <input matInput #inputValue />
+  </mat-form-field>
+  <button
+    mat-raised-button
+    color="warn"
+    (click)="getInputValue(inputValue.value)"
+  >
+    Click Me
+  </button>
+  <p style="font-size: 30px; color: orangered">{{ message }}</p>
+</div>

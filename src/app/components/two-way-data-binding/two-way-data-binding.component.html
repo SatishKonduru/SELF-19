@@ -1,0 +1,24 @@
+<div style="display: flex; justify-content: center">
+  <p style="font-size: 25px">Two-way Data Binding with [(ngModel)]</p>
+</div>
+<mat-form-field appearance="outline">
+  <mat-label>Enter something</mat-label>
+  <input matInput [(ngModel)]="message" />
+</mat-form-field>
+<p>{{ message }}</p>
+
+<div style="display: flex; justify-content: center">
+  <p style="font-size: 25px">Two-way Data Binding with SIGNAL</p>
+</div>
+
+<mat-form-field appearance="outline">
+  <mat-label>Enter something</mat-label>
+  <input
+    matInput
+    type="text"
+    [value]="username()"
+    (input)="username.set($any($event.target).value)"
+  />
+</mat-form-field>
+
+<p>Hello, {{ username() }}!</p>

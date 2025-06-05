@@ -12,7 +12,7 @@ import { IfComponent } from './components/if/if.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TwoWayDataBindingComponent, IfComponent],
+  imports: [RouterOutlet, IfComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

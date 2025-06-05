@@ -8,10 +8,11 @@ import { StyleBindingComponent } from './components/style-binding/style-binding.
 import { ClassBindingComponent } from './components/class-binding/class-binding.component';
 import { TempRefVariablesComponent } from './components/temp-ref-variables/temp-ref-variables.component';
 import { TwoWayDataBindingComponent } from './components/two-way-data-binding/two-way-data-binding.component';
+import { IfComponent } from './components/if/if.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TwoWayDataBindingComponent],
+  imports: [RouterOutlet, TwoWayDataBindingComponent, IfComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

@@ -1,0 +1,71 @@
+<div style="display: flex; justify-content: center">
+  <p style="font-size: 25px">&#64;for</p>
+</div>
+<ul>
+  @for (fruit of fruits; track fruit) {
+  <li>{{ fruit }}</li>
+  }
+</ul>
+<!-- with index -->
+<ul>
+  @for (item of items; track i; let i = $index) {
+  <li>{{ i + 1 }}. {{ item }}</li>
+  }
+</ul>
+<!-- First / last/ Even/ Odd -->
+<ul>
+  @for (user of users; let isFirst = $first; let isLast = $last; let isEven =
+  $even; let isOdd = $odd; track user) {
+  <li>
+    {{ user.name }}
+
+    <span> @if(isFirst){ (First) }</span>
+    <span> @if(isLast){ (Last) } </span>
+    <span> @if(isEven){ (Even) } </span>
+    <span> @if(isOdd){ (Odd) } </span>
+  </li>
+  }
+</ul>
+
+<!-- tacking -->
+<ul>
+  @for (product of products; track product.id) {
+  <li>{{ product.name }}</li>
+  }
+</ul>
+<!-- Nested -->
+@for (category of categories; track $index) {
+<h3>{{ category.name }}</h3>
+<ul>
+  @for (item of category.items; track $index) {
+  <li>{{ item }}</li>
+  }
+</ul>
+
+}
+
+<!-- for + if -->
+<ul>
+  @for (product of products; track $index) { @if (product.inStock) {
+  <li>{{ product.name }}</li>
+  } }
+</ul>
+<!-- keyvalue -->
+<ul>
+  @for (item of myObj | keyvalue; track $index) {
+  <li>{{ item.key }}: {{ item.value }}</li>
+  }
+</ul>
+<!-- Select -->
+<mat-form-field appearance="outline">
+  <mat-label>Choose City</mat-label>
+  <mat-select [(ngModel)]="selectedCity">
+    @for (city of cities; track $index) {
+    <mat-option [value]="city">{{ city }}</mat-option>
+    }@empty {
+    <mat-option>No Data</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+
+<p>You selected: {{ selectedCity }}</p>

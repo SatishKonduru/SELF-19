@@ -1,3 +1,4 @@
+import { ForComponent } from './components/for/for.component';
 import { EventBindingComponent } from './components/event-binding/event-binding.component';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
@@ -13,7 +14,7 @@ import { SwitchComponent } from './components/switch/switch.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SwitchComponent],
+  imports: [RouterOutlet, ForComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

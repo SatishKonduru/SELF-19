@@ -18,9 +18,12 @@ export class ReceiverComponent {
   // @Input() postman: any;
   postman = input<string>();
   @Output() reply = new EventEmitter();
-
+  msg = signal<string>('');
   private replySignal = signal('This is the Reply Message');
   replyMessage() {
     this.reply.emit('This is the Reply Message');
+  }
+  showParentMessage() {
+    this.msg.set(this.postman());
   }
 }

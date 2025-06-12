@@ -5,7 +5,7 @@
     <!-- Child placeholder -->
     <ng-template #childHost></ng-template>
 
-    <button mat-raised-button color="primary" (click)="callChildMethod()">
+    <button mat-raised-button  (click)="callChildMethod()">
       Call Child's Method
     </button>
 
@@ -13,5 +13,6 @@
       <strong>Note:</strong> Child is created dynamically and receives input via
       signals.
     </p>
+    <p><strong>Child Message:</strong> {{childMessage}}</p>
   </div>
 </div>

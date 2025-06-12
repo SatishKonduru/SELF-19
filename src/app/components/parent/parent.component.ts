@@ -25,25 +25,28 @@ export class ParentComponent {
   private injector = inject(Injector);
   private envInjector = inject(EnvironmentInjector);
 
-  childMessage = 'Hello from Parent via Signal!';
-
+  msgToChild = 'This message is sent from Parent ';
+  childMessage: any;
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngAfterViewInit() {
-    // this.childRef = this.vcr.createComponent(ChildComponent, {
-    //   environmentInjector: this.envInjector,
-    //   injector: this.injector,
-    // });
-    this.childRef = createComponent(ChildComponent, {
+    this.childRef = this.vcr.createComponent(ChildComponent, {
       environmentInjector: this.envInjector,
-      elementInjector: this.injector,
+      injector: this.injector,
     });
 
-    this.childRef.setInput('message', this.childMessage);
+    // To Hide Child Component view in parent
+    // this.childRef = createComponent(ChildComponent, {
+    //   environmentInjector: this.envInjector,
+    //   elementInjector: this.injector,
+    // });
+
+    this.childRef.setInput('message', this.msgToChild);
+    this.childMessage = this.childRef?.instance?.childMessage;
     this.cdr.detectChanges(); // Needed if you want to update bindings synchronously
   }
 
   callChildMethod() {
-    this.childRef.instance.showMessage();
+    this.childRef?.instance?.showMessage();
   }
 }

@@ -1,7 +1,7 @@
 import { Component, input, Input, signal } from '@angular/core';
 
 @Component({
-  selector: 'app-child',
+  selector: 'app-child-dynamic',
   imports: [],
   templateUrl: './child.component.html',
   styleUrl: './child.component.css',

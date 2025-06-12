@@ -1,0 +1,15 @@
+<app-topic [topic]="topicName"></app-topic>
+<div class="container">
+  <div style="border: 2px solid blue; padding: 10px; margin-top: 20px">
+    <h2>🧑‍💼 I am Parent</h2>
+    <ng-template #childHost></ng-template>
+    <button mat-raised-button color="primary" (click)="callChildMethod()">
+      Call Child's Method
+    </button>
+
+    <p>
+      <strong>Note:</strong> Child is created dynamically and receives input via
+      signals.
+    </p>
+  </div>
+</div>

@@ -14,10 +14,11 @@ import { IfComponent } from './components/if/if.component';
 import { SwitchComponent } from './components/switch/switch.component';
 import { SenderComponent } from './components/sender/sender.component';
 import { ViewChildComponent } from './components/view-child/view-child.component';
+import { ParentComponent } from './components/parent/parent.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SenderComponent, ViewChildComponent],
+  imports: [RouterOutlet, ParentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

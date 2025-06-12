@@ -21,7 +21,7 @@ export class ReceiverComponent {
   msg = signal<string>('');
   private replySignal = signal('This is the Reply Message');
   replyMessage() {
-    this.reply.emit('This is the Reply Message');
+    this.reply.emit(this.replySignal);
   }
   showParentMessage() {
     this.msg.set(this.postman());

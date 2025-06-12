@@ -13,10 +13,11 @@ import { TwoWayDataBindingComponent } from './components/two-way-data-binding/tw
 import { IfComponent } from './components/if/if.component';
 import { SwitchComponent } from './components/switch/switch.component';
 import { SenderComponent } from './components/sender/sender.component';
+import { ViewChildComponent } from './components/view-child/view-child.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SenderComponent],
+  imports: [RouterOutlet, SenderComponent, ViewChildComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

@@ -1,0 +1,35 @@
+<div class="container mt-3">
+  @for(q of questions(); let i = $index; track q.id){
+  <div class="d-flex">
+    <app-question [question]="q.text"></app-question>
+    <button mat-flat-button color="warn" (click)="removeQuestion(i)">
+      🗑️ Remove
+    </button>
+  </div>
+  }
+
+  <mat-form-field appearance="outline">
+    <mat-label>New Question: </mat-label>
+    <input
+      matInput
+      type="text"
+      [value]="newQuestion()"
+      (input)="newQuestion.set($event.target.value)"
+    />
+  </mat-form-field>
+
+  <button mat-stroked-button color="warn" (click)="addQuestion()">
+    ➕ Add Question
+  </button>
+
+  <hr />
+  <button mat-raised-button color="primary" (click)="checkAnswers()">
+    Check If All Answered
+  </button>
+
+  @if(allAnswered() && checked()){
+  <p>✅ All questions answered!</p>
+  } @if(!allAnswered() && checked()){
+  <p>❌ Some questions are unanswered.</p>
+  }
+</div>

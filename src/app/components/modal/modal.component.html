@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="modal-container">
+    <!-- Inject header -->
+    <div class="modal-header">
+      <ng-content select="app-modal-header"></ng-content>
+    </div>
+
+    <!-- Inject body -->
+    <div class="modal-body">
+      <ng-content select="[modal-body]"></ng-content>
+    </div>
+
+    <!-- Inject footer -->
+    <div class="modal-footer">
+      <ng-content select=".modal-footer"></ng-content>
+    </div>
+
+    <!-- Show @ContentChild() status -->
+    <!-- <div class="debug-info">
+      <p>
+        <strong>Header projected?</strong>
+        {{ headerAvailable ? "✅ Yes" : "❌ No" }}
+      </p>
+      <p>
+        <strong>Body projected?</strong>
+        {{ bodyAvailable ? "✅ Yes" : "❌ No" }}
+      </p>
+      <p>
+        <strong>Footer projected?</strong>
+        {{ footerAvailable ? "✅ Yes" : "❌ No" }}
+      </p>
+    </div>
+    <!-- Showing method return from child here
+    <button mat-raised-button color="accent" (click)="getBodyMessage()">
+      Get Body Message
+    </button>
+
+    <p style="margin-top: 1rem; color: green; font-weight: bold">
+      {{ bodyMessage }}
+    </p> -->
+    <!-- Debug info using signals -->
+    <div class="debug-info">
+      <p>
+        <strong>Header projected?</strong>
+        {{ headerAvailable() ? "✅ Yes" : "❌ No" }}
+      </p>
+      <p>
+        <strong>Body projected?</strong>
+        {{ bodyAvailable() ? "✅ Yes" : "❌ No" }}
+      </p>
+      <p>
+        <strong>Footer projected?</strong>
+        {{ footerAvailable() ? "✅ Yes" : "❌ No" }}
+      </p>
+    </div>
+
+    <!-- Show method output -->
+    <button mat-raised-button color="accent" (click)="getBodyMessage()">
+      Get Body Message
+    </button>
+
+    <p style="margin-top: 1rem; color: green; font-weight: bold">
+      {{ bodyMessage() }}
+    </p>
+  </div>
+</div>

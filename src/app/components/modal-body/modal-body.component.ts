@@ -1,0 +1,15 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-modal-body',
+  imports: [],
+  templateUrl: './modal-body.component.html',
+  styleUrl: './modal-body.component.css',
+})
+export class ModalBodyComponent {
+  bodyMessage = 'Hello from Modal Body!';
+
+  getBodyMessage(): string {
+    return this.bodyMessage;
+  }
+}

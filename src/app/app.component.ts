@@ -21,16 +21,11 @@ import { ModalHeaderComponent } from './components/modal-header/modal-header.com
 import { ModalBodyComponent } from './components/modal-body/modal-body.component';
 import { ModalFooterComponent } from './components/modal-footer/modal-footer.component';
 import { MatButtonModule } from '@angular/material/button';
+import { StepComponent } from './components/step/step.component';
+import { StepperComponent } from './components/stepper/stepper.component';
 @Component({
   selector: 'app-root',
-  imports: [
-    RouterOutlet,
-    ModalComponent,
-    ModalHeaderComponent,
-    ModalBodyComponent,
-    ModalFooterComponent,
-    MatButtonModule,
-  ],
+  imports: [RouterOutlet, StepComponent, StepperComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

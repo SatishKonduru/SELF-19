@@ -1,0 +1,12 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">Course Names</div>
+    <div class="card-body">
+      @for(course of courseList; track $index){
+      <div>
+        {{ course.name }}
+      </div>
+      }
+    </div>
+  </div>
+</div>

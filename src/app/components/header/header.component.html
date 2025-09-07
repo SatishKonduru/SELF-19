@@ -1,0 +1,29 @@
+<mat-toolbar style="background-color: whitesmoke; height: 50px">
+  <span>
+    <button
+      mat-raised-button
+      routerLink="/course"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <mat-icon class="check-icon">check</mat-icon>
+      Course
+    </button>
+
+    <button
+      mat-raised-button
+      [routerLink]="'/courseDetails'"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <mat-icon class="check-icon">check</mat-icon>
+      Course Details
+    </button>
+  </span>
+</mat-toolbar>
+<div
+  style="border: 2px dashed green; width: 90%; height: 60vh; border-radius: 5px"
+  class="container"
+>
+  <router-outlet></router-outlet>
+</div>

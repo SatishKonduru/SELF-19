@@ -1,0 +1,27 @@
+/* .active {
+  background-color: green !important;
+  color: #fff !important;
+  position: relative;
+  width: 180px !important;
+}
+.active::before {
+  content: "\2713";
+  position: absolute;
+  color: #fff !important;
+  left: 10px;
+  font-size: 20px;
+  font-weight: 700;
+} */
+button .check-icon {
+  display: none;
+  margin-right: 8px;
+}
+button.active {
+  background-color: green;
+  color: #fff;
+}
+button.active .check-icon {
+  display: inline-flex;
+  color: #fff;
+  font-weight: 700;
+}

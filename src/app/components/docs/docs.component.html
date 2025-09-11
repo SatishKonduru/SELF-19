@@ -1,0 +1,27 @@
+<div class="container">
+  <h1 id="title">Angular Docs</h1>
+
+  <nav>
+    <a [routerLink]="['/docs']" fragment="installation">Installation</a> |
+    <a [routerLink]="['/docs']" fragment="usage">Usage</a> |
+    <a [routerLink]="['/docs']" fragment="faq">FAQ</a>
+  </nav>
+
+  <section id="installation" style="height: 100vh; background: lightyellow">
+    <h2>Installation</h2>
+    <p>Steps to install Angular...</p>
+    <a [routerLink]="['/docs']" fragment="title">goto TOP</a>
+  </section>
+
+  <section id="usage" style="height: 100vh; background: lightblue">
+    <h2>Usage</h2>
+    <p>How to use Angular...</p>
+    <a [routerLink]="['/docs']" fragment="title">goto TOP</a>
+  </section>
+
+  <section id="faq" style="height: 100vh; background: lightgreen">
+    <h2>FAQ</h2>
+    <p>Frequently asked questions...</p>
+    <a [routerLink]="['/docs']" fragment="title">goto TOP</a>
+  </section>
+</div>

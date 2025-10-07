@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-course-details',
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class CourseDetailsComponent {
   router = inject(Router);
+  activatedRoute = inject(ActivatedRoute);
   courseList = [
     { id: 1, name: 'Angular', tutor: 'Satish' },
     { id: 2, name: 'React', tutor: 'RSK' },
@@ -18,7 +19,13 @@ export class CourseDetailsComponent {
     { id: 5, name: 'NodeJS', tutor: 'Renu' },
   ];
   courseKeys: string[] = [];
+  courseId: number;
   ngOnInit() {
+    this.activatedRoute.paramMap.subscribe((p) => {
+      if (p) {
+        this.courseId = parseInt(p.get('id'));
+      }
+    });
     this.courseKeys = Object.keys(this.courseList[0]);
   }
 

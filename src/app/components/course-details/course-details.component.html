@@ -16,7 +16,8 @@
           @for(course of courseList; track $index){
           <tr (click)="onSelect(course)">
             @for(key of courseKeys; track $index){
-            <td>
+            <td [class]="course.id === courseId ? 'selected': '' ">
+
               {{ course[key] }}
             </td>
             }

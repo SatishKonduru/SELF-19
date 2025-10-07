@@ -26,4 +26,8 @@ export const routes: Routes = [
     path: 'selectedCourse',
     component: SelectedCourseComponent,
   },
+  {
+    path: 'courseDetails/:id',
+    component: CourseDetailsComponent,
+  },
 ];

@@ -20,6 +20,6 @@ export class SelectedCourseComponent {
     );
   }
   goBack() {
-    this.router.navigate(['/courseDetails']);
+    this.router.navigate(['/courseDetails', this.myCourse.id]);
   }
 }

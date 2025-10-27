@@ -4,8 +4,21 @@ import { CourseComponent } from './components/course/course.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 import { DocsComponent } from './components/docs/docs.component';
 import { SelectedCourseComponent } from './components/selected-course/selected-course.component';
+import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { authGuard } from './guards/auth.guard';
+import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
   {
     path: 'course',
     component: CourseComponent,
@@ -29,5 +42,14 @@ export const routes: Routes = [
   {
     path: 'courseDetails/:id',
     component: CourseDetailsComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [authGuard],
   },
 ];

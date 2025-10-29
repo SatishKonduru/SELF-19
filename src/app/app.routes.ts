@@ -8,6 +8,9 @@ import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { authGuard } from './guards/auth.guard';
 import { HomeComponent } from './components/home/home.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { editProfileGuard } from './guards/edit-profile.guard';
+import { canDeactivateGuard } from './guards/can-deactivate.guard';
 
 export const routes: Routes = [
   {
@@ -51,5 +54,11 @@ export const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [authGuard],
+  },
+  {
+    path: 'edit-profile',
+    component: EditProfileComponent,
+    // canDeactivate: [editProfileGuard],
+    canDeactivate: [canDeactivateGuard],
   },
 ];

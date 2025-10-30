@@ -61,4 +61,9 @@ export const routes: Routes = [
     // canDeactivate: [editProfileGuard],
     canDeactivate: [canDeactivateGuard],
   },
+  {
+    path: 'about',
+    loadComponent: () =>
+      import('./pages/about/about.component').then((c) => c.AboutComponent),
+  },
 ];

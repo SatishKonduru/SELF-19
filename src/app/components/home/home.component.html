@@ -1,15 +1,43 @@
-<div class="container">
-  <div class="row">
-    <div class="d-flex gap-2">
-      <button mat-raised-button [routerLink]="['/login']">Login</button>
-      <button mat-stroked-button [routerLink]="['/dashboard']">
-        Dashboard
-      </button>
+  <!-- <div class="container">
+    <div class="row">
+      <div class="d-flex gap-2">
+        <button mat-raised-button [routerLink]="['/login']">Login</button>
+        <button mat-stroked-button [routerLink]="['/dashboard']">
+          Dashboard
+        </button>
+      </div>
     </div>
+    <h2>Home Component</h2>
   </div>
-  <h2>Home Component</h2>
-</div>
-<hr />
+  <hr />
+  <div class="container">
+    <button mat-stroked-button [routerLink]="['/edit-profile']">Edit Profile</button>
+  </div> -->
+<!-- <div class="container">
+  <h2>Angular 19 &#64;Defer using 'when' condition</h2>
+
+
+<button mat-stroked-button (click)="showDetails.set(true)">Load Details</button>
+
+
+@defer (when showDetails()) {
+  <app-course-details />
+} @placeholder {
+
+  <p>Click button to load user details...</p>
+}
+
+</div> -->
+
 <div class="container">
-  <button mat-stroked-button [routerLink]="['/edit-profile']">Edit Profile</button>
+  <h2>Angular 19 &#64;Defer using  Timer</h2>
+
+@defer (on timer(3000)) {
+  <app-course-details></app-course-details>
+
+  <p>Loaded after 3 seconds delay!</p>
+} @placeholder {
+  <mat-spinner></mat-spinner>
+  <p>Waiting for 3 seconds...</p>
+}
 </div>

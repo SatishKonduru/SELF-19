@@ -17,5 +17,7 @@ import { CourseDetailsComponent } from '../course-details/course-details.compone
 })
 export class HomeComponent {
   showDetails = signal(false);
-
+  firstName = signal('Satish');
+  lastName = signal('Konduru');
+  x = 10;
 }

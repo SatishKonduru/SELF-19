@@ -17,4 +17,5 @@ import { CourseDetailsComponent } from '../course-details/course-details.compone
 })
 export class HomeComponent {
   showDetails = signal(false);
+
 }

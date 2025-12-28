@@ -1,9 +1,17 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CourseDetailsComponent } from '../course-details/course-details.component';
+import {
+  HttpClient,
+  HttpClientModule,
+  httpResource,
+} from '@angular/common/http';
+import { UserService } from '../../services/user.service';
+
+interface User {}
 @Component({
   selector: 'app-home',
   imports: [
@@ -16,8 +24,21 @@ import { CourseDetailsComponent } from '../course-details/course-details.compone
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  showDetails = signal(false);
-  firstName = signal('Satish');
-  lastName = signal('Konduru');
-  x = 10;
+  // userName = '';
+  // errorMsg = '';
+  // // constructor(private _http: HttpClient) {}
+  // private _http = inject(HttpClient);
+  // ngOnInit() {
+  //   this._http
+  //     .get<any>('https://jsonplaceholder.typicode.com/users/1')
+  //     .subscribe({
+  //       next: (data) => (this.userName = data.username),
+  //       error: (err) => (this.errorMsg = err),
+  //     });
+  // }
+  // users = httpResource<User[]>(() => ({
+  //   url: 'https://jsonplaceholder.typicode.com/users',
+  // }));
+  private _userService = inject(UserService);
+  users = this._userService.users;
 }

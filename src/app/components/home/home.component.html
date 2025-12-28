@@ -1,102 +1,58 @@
-  <!-- <div class="container">
-    <div class="row">
-      <div class="d-flex gap-2">
-        <button mat-raised-button [routerLink]="['/login']">Login</button>
-        <button mat-stroked-button [routerLink]="['/dashboard']">
-          Dashboard
-        </button>
-      </div>
-    </div>
-    <h2>Home Component</h2>
-  </div>
-  <hr />
-  <div class="container">
-    <button mat-stroked-button [routerLink]="['/edit-profile']">Edit Profile</button>
-  </div> -->
-<!-- <div class="container">
-  <h2>Angular 19 &#64;Defer using 'when' condition</h2>
-
-
-<button mat-stroked-button (click)="showDetails.set(true)">Load Details</button>
-
-
-@defer (when showDetails()) {
-  <app-course-details />
-} @placeholder {
-
-  <p>Click button to load user details...</p>
-}
-
-</div> -->
 
 <!-- <div class="container">
-  <h2>Angular 19 &#64;Defer using  Timer</h2>
-
-@defer (on timer(3000)) {
-  <app-course-details></app-course-details>
-
-  <p>Loaded after 3 seconds delay!</p>
-} @placeholder {
-  <mat-spinner></mat-spinner>
-  <p>Waiting for 3 seconds...</p>
-}
-</div> -->
-<!-- <div class="container-fluid">
-  <div class="bg-danger" style="height: 100vh;">
-      <h2>Scroll down to load the image</h2>
-  </div>
-
-
-<div style="height: 100vh; background: #eee;">
-  <p>Keep scrolling...</p>
-</div>
-
-@defer (on viewport) {
-<img src="https://picsum.photos/400/200" alt="Lazy Image" class="p-5">
-}@placeholder {
-  <p>Image will load when visible in viewport...</p>
-}
+  <h5>Username: {{userName}}</h5>
 </div> -->
 <!-- <div class="container">
-<h2>Defer loading a large component</h2>
 
-@defer (on interaction) {
-  @defer (when true; prefetch on idle) {
-    <app-course-details />
+  @if (users.isLoading()) {
+    <p>Loading users...</p>
   }
-} @placeholder {
-  <button mat-button>Click to load Course Details</button>
-}
+
+  @else if (users.error()) {
+    <p class="error">Failed to load users</p>
+  }
+
+  @else {
+    @for (user of users.value(); track user.id) {
+      <p>Username: <strong>{{ user.username }}</strong> </p>
+    }
+  }
+
 </div> -->
+<h2>User List</h2>
 <div class="container">
-  <!-- @let fullName= firstName() + lastName();
-  <p>Hello, {{fullName}}</p>
-</div>
-<div class="container">
-  <h3>Using &#64;let inside &#64;for</h3>
 
-@for (user of [{name: 'Satish', age: 15}, {name: 'RSK', age: 40}]; track user.name) {
-  @let isPerson = user.age < 18;
+@if(users.isLoading()){
+<p >Loading users...</p>
+}
+@else if(users.error()){
+<p >Failed to load users</p>
+}
+@else {
+  @if(users.value()){
+<table class="table table-responsive table-striped">
+  <thead>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+  </thead>
+  <tbody>
+  @for( u of users.value(); track u.id){
+<tr>
+    <td>{{ u.id }}</td>
+    <td>{{ u.name }}</td>
+    <td>{{ u.email }}</td>
+  </tr>
+  }
+</tbody>
+</table>
 
-  <div>
-    {{ user.name }} -
-    <strong>{{ isPerson ? 'Minor' : 'Adult' }}</strong>
-  </div>
-} -->
-  <!-- <div>
-    @let y = 10;
-    {{x}} {{y}}
-  </div>
-
-</div>
-<div class="container">
-  {{y}} -->
-</div>
-
-@if (true) {
-  @let y = 10;
-  <p>{{ y }}</p>  <!-- ✅ Works -->
+  }
 }
 
-<!-- <p>{{ y }}</p> -->
 
+
+
+</div>

@@ -30,7 +30,7 @@
 }
 @else {
   @if(users.value()){
-<table class="table table-responsive table-striped">
+<table class="table table-responsive table-striped selected">
   <thead>
 <tr>
     <th>ID</th>
@@ -40,7 +40,7 @@
   </thead>
   <tbody>
   @for( u of users.value(); track u.id){
-<tr>
+<tr (click)="onSelect(u)">
     <td>{{ u.id }}</td>
     <td>{{ u.name }}</td>
     <td>{{ u.email }}</td>

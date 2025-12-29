@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -40,5 +40,9 @@ export class HomeComponent {
   //   url: 'https://jsonplaceholder.typicode.com/users',
   // }));
   private _userService = inject(UserService);
+  private _router = inject(Router);
   users = this._userService.users;
+  onSelect(user: any) {
+    this._router.navigate(['/userDetails', user.id]);
+  }
 }

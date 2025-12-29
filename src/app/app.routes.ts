@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { editProfileGuard } from './guards/edit-profile.guard';
 import { canDeactivateGuard } from './guards/can-deactivate.guard';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,14 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+  },
+  {
+    path: 'userDetails/:id',
+    // component: UserDetailsComponent,
+    loadComponent: () =>
+      import('./components/user-details/user-details.component').then(
+        (c) => c.UserDetailsComponent
+      ),
   },
   {
     path: 'course',

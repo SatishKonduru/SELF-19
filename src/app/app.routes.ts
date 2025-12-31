@@ -12,12 +12,22 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import { editProfileGuard } from './guards/edit-profile.guard';
 import { canDeactivateGuard } from './guards/can-deactivate.guard';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { UserSearchComponent } from './components/user-search/user-search.component';
+import { UserInsertComponent } from './components/user-insert/user-insert.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/userInsert',
     pathMatch: 'full',
+  },
+  {
+    path: 'userInsert',
+    component: UserInsertComponent,
+  },
+  {
+    path: 'userSearch',
+    component: UserSearchComponent,
   },
   {
     path: 'home',

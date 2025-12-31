@@ -1,0 +1,68 @@
+<div class="container">
+  <h2>Add User</h2>
+
+  <form #f="ngForm" (ngSubmit)="submit(f)">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Name:</mat-label>
+        <input matInput name="name" ngModel required />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput name="email" ngModel required />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Phone</mat-label>
+        <input matInput name="phone" ngModel required />
+      </mat-form-field>
+    </div>
+
+    <button mat-stroked-button type="submit">Create User</button>
+  </form>
+
+  <hr />
+
+  @if(createUserResource.isLoading()){
+  <p>Saving user...</p>
+  } @if(createUserResource.error()){
+  <p style="color: red">Failed to create user</p>
+  } @if(createUserResource.value()){
+  <div>
+    <h3>✅ User Created</h3>
+    <pre>{{ createUserResource.value() | json }}</pre>
+  </div>
+  }
+</div>
+<div class="container">
+  <h3>Update User</h3>
+
+  <button mat-raised-button (click)="update()">Update User Name</button>
+
+  @if(updateResource.isLoading()){
+  <p>Updating...</p>
+  } @if(updateResource.value()){
+  <pre
+    >{{ updateResource.value() | json }}
+</pre
+  >
+  }
+</div>
+
+<div class="container">
+  <h3>Delete User</h3>
+
+  <button mat-button (click)="delete()">Delete User</button>
+  @if(deleteResource.status()){
+  {{ deleteResource.status() }}
+  } @if(deleteResource.isLoading()){
+  <p>Deleting...</p>
+  } @if(deleteResource.value()){
+  <p>✅ User deleted</p>
+  }
+</div>

@@ -1,0 +1,21 @@
+<div class="container">
+  <mat-form-field appearance="outline">
+    <mat-label>Username</mat-label>
+    <input matInput (input)="searchText.set($any($event.target).value)" />
+  </mat-form-field>
+
+  <!-- @if (user.isLoading()) {
+  <p>Searching...</p>
+  } @else if (user.value()?.length) {
+  <h3>{{ user.value()![0].name }}</h3>
+  } @else {
+  <p>No user found</p>
+  } -->
+  @let users = user.value(); @if (user.isLoading()) {
+  <p>Searching...</p>
+  } @else if (users?.length) {
+  <h3>{{ users[0].name }}</h3>
+  } @else {
+  <p>No user found</p>
+  }
+</div>

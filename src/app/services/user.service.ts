@@ -22,4 +22,56 @@ export class UserService {
       };
     });
   }
+
+  getUserByName(userName: Signal<string | null>) {
+    return httpResource<User[]>(() => {
+      const name = userName().trim();
+      if (!name) return null;
+
+      return {
+        url: 'https://jsonplaceholder.typicode.com/users',
+        params: { q: name },
+      };
+    });
+  }
+  createUser(userSignal: Signal<User | null>) {
+    return httpResource<User>(() => {
+      const user = userSignal();
+
+      if (!user) return null; // 🚫 no request
+
+      return {
+        url: 'https://jsonplaceholder.typicode.com/users',
+        method: 'POST',
+        body: user,
+      };
+    });
+  }
+
+  // 🔹 UPDATE (PUT / PATCH)
+  updateUser(updateSignal: Signal<{ id: number; data: Partial<User> } | null>) {
+    return httpResource<User>(() => {
+      const payload = updateSignal();
+      if (!payload) return null;
+
+      return {
+        url: `https://jsonplaceholder.typicode.com/users/${payload.id}`,
+        method: 'PATCH', // change to PUT if needed
+        body: payload.data,
+      };
+    });
+  }
+
+  // 🔹 DELETE
+  deleteUser(deleteId: Signal<number | null>) {
+    return httpResource(() => {
+      const id = deleteId();
+      if (!id) return null;
+
+      return {
+        url: `https://jsonplaceholder.typicode.com/users/${id}`,
+        method: 'DELETE',
+      };
+    });
+  }
 }

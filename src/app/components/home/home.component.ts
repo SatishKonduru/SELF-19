@@ -18,7 +18,7 @@ interface User {}
     RouterModule,
     MatButtonModule,
     MatProgressSpinnerModule,
-    CourseDetailsComponent,
+
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

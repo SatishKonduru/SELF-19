@@ -10,7 +10,7 @@ import {
   httpResource,
 } from '@angular/common/http';
 import { UserService } from '../../services/user.service';
-
+import { MatIconModule } from '@angular/material/icon';
 interface User {}
 @Component({
   selector: 'app-home',
@@ -18,7 +18,7 @@ interface User {}
     RouterModule,
     MatButtonModule,
     MatProgressSpinnerModule,
-
+    MatIconModule,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
@@ -39,10 +39,10 @@ export class HomeComponent {
   // users = httpResource<User[]>(() => ({
   //   url: 'https://jsonplaceholder.typicode.com/users',
   // }));
-  private _userService = inject(UserService);
-  private _router = inject(Router);
-  users = this._userService.users;
-  onSelect(user: any) {
-    this._router.navigate(['/userDetails', user.id]);
-  }
+  // private _userService = inject(UserService);
+  // private _router = inject(Router);
+  // users = this._userService.users;
+  // onSelect(user: any) {
+  //   this._router.navigate(['/userDetails', user.id]);
+  // }
 }

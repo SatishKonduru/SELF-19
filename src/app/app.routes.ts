@@ -18,7 +18,7 @@ import { UserInsertComponent } from './components/user-insert/user-insert.compon
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/userInsert',
+    redirectTo: '/home',
     pathMatch: 'full',
   },
   {
@@ -34,11 +34,19 @@ export const routes: Routes = [
     component: HomeComponent,
   },
   {
+    path: 'tdfRegister',
+    loadComponent: () =>
+      import('./forms/tdf-register/tdf-register.component').then(
+        (c) => c.TdfRegisterComponent,
+      ),
+  },
+
+  {
     path: 'userDetails/:id',
     // component: UserDetailsComponent,
     loadComponent: () =>
       import('./components/user-details/user-details.component').then(
-        (c) => c.UserDetailsComponent
+        (c) => c.UserDetailsComponent,
       ),
   },
   {

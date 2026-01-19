@@ -1,0 +1,101 @@
+<div class="container mt-3 mx-auto">
+  <div class="mat-elevation-z10 p-2 rounded-3">
+    <div class="row">
+      <h3>Signal Based Register Form (TDF)</h3>
+    </div>
+  </div>
+  <form
+    #userForm="ngForm"
+    (ngSubmit)="onSubmit(userForm)"
+    class="form-container"
+  >
+    <div class="col-6">
+      <!-- USERNAME -->
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input
+          matInput
+          name="username"
+          required
+          [ngModel]="username()"
+          (ngModelChange)="username.set($event)"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="col-6">
+      <!-- EMAIL -->
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          name="email"
+          required
+          email
+          [ngModel]="email()"
+          (ngModelChange)="email.set($event)"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="col-6">
+      <!-- GENDER -->
+      <label class="section-title">Gender</label>
+      <mat-radio-group
+        name="gender"
+        [ngModel]="gender()"
+        (ngModelChange)="gender.set($event)"
+      >
+        <mat-radio-button value="male">Male</mat-radio-button>
+        <mat-radio-button value="female">Female</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="col-6">
+      <!-- COUNTRY -->
+      <mat-form-field appearance="outline">
+        <mat-label>Country</mat-label>
+        <mat-select
+          name="country"
+          required
+          [ngModel]="country()"
+          (ngModelChange)="country.set($event)"
+        >
+          <mat-option *ngFor="let c of countries" [value]="c">
+            {{ c }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col-6">
+      <!-- BUTTONS -->
+      <div class="actions">
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+
+        <button
+          mat-raised-button
+          color="warn"
+          type="button"
+          (click)="resetForm(userForm)"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <!-- LIVE PREVIEW -->
+  <pre class="preview"
+    >{{
+      {
+        username: username(),
+        email: email(),
+        gender: gender(),
+        country: country(),
+      } | json
+    }}
+</pre
+  >
+</div>

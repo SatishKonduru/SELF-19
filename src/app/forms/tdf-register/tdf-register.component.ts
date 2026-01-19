@@ -6,6 +6,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @Component({
   selector: 'app-tdf-register',
   imports: [
@@ -16,6 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatSelectModule,
     FormsModule,
     MatButtonModule,
+    // MatTableModule,
+    MatCheckboxModule,
   ],
   templateUrl: './tdf-register.component.html',
   styleUrl: './tdf-register.component.css',
@@ -26,6 +30,7 @@ export class TdfRegisterComponent {
   email = signal('');
   gender = signal('male');
   country = signal('');
+  acceptTerms = signal(false);
 
   countries = ['India', 'USA', 'UK', 'Australia'];
 

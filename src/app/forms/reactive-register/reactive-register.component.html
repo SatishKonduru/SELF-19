@@ -1,0 +1,59 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+    <!-- USERNAME -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" />
+    </mat-form-field>
+
+    <!-- SKILLS -->
+    <h4>Skills</h4>
+
+    <div formArrayName="skills">
+      @for (skill of skills.controls; let i = $index; track i) {
+        <div>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Skill {{ i + 1 }}</mat-label>
+            <input matInput [formControlName]="i" />
+          </mat-form-field>
+
+          <button
+            mat-icon-button
+            color="warn"
+            type="button"
+            (click)="removeSkill(i)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      }
+    </div>
+
+    <!-- ADD BUTTON -->
+    <button
+      mat-stroked-button
+      type="button"
+      (click)="addSkill()"
+      [disabled]="!canAddMore()"
+    >
+      Add Skill
+    </button>
+
+    <p>Skills Added: {{ skillCount() }}</p>
+
+    <!-- SUBMIT -->
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Submit
+    </button>
+  </form>
+
+  <hr />
+
+  <!-- LIVE PREVIEW -->
+  <pre>{{ form.value | json }}</pre>
+</div>

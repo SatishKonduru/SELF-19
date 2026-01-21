@@ -40,6 +40,13 @@ export const routes: Routes = [
         (c) => c.TdfRegisterComponent,
       ),
   },
+  {
+    path: 'reactiveRegister',
+    loadComponent: () =>
+      import('./forms/reactive-register/reactive-register.component').then(
+        (c) => c.ReactiveRegisterComponent,
+      ),
+  },
 
   {
     path: 'userDetails/:id',
